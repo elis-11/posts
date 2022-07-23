@@ -1,4 +1,5 @@
 @API_URL = http://localhost:5000
+@TOKEN = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZGMwOWQ2Y2E5ZDBlOTk3N2E1ZTNiYiIsImlhdCI6MTY1ODU4OTA2NCwiZXhwIjoxNjU5MTkzODY0fQ.-79k4sVS_rXTFsG6VsKBBA9S_Cf0Ih19xFbdqgmVy90
 
 ### home
 GET {{API_URL}}/
@@ -11,7 +12,16 @@ POST {{API_URL}}/auth/register
 Content-Type: application/json
 
 {
-    "name": "leon",
-    "email": "leon@gmail.com",
-    "password": "leon"
+    "name": "iman",
+    "email": "iman@gmail.com",
+    "password": "iman"
+}
+
+### login
+POST {{API_URL}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "iman@gmail.com",
+    "password": "iman" 
 }
