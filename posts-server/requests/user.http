@@ -2,3 +2,16 @@
 
 ### home
 GET {{API_URL}}/
+
+### all
+GET {{API_URL}}/auth
+
+### create / register
+POST {{API_URL}}/auth/register
+Content-Type: application/json
+
+{
+    "name": "leon",
+    "email": "leon@gmail.com",
+    "password": "leon"
+}

@@ -1,22 +1,34 @@
-import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import cors from "cors";
-dotenv.config();
-
+import authRouter from "./routes/auth.router.js";
 
 const app = express();
+dotenv.config();
 const PORT = process.env.PORT || 5555;
 
-
 // Middleware
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
-app.get('/', (req,res) => {
-  return res.json({message: 'Hello, world!'}); 
-})
+// app.get("/", (req, res) => {
+//   return res.json({ message: "Hello, world!" });
+// });
 
+app.get("/", (req, res) => {
+    res.send(`
+    <h2>Welcome!</h2>
+  <div>Routes:</div>
+  <div>Users: <a href="/">/</a></div>
+  <div>Users: <a href="/auth">/users</a></div>
+  
+  `);
+});
+{/* <div> Frontend URL: <a href="${process.env.FRONTEND_ORIGIN}"> ${process.env.FRONTEND_ORIGIN}</a></div> */}
+  
+
+app.use("/auth", authRouter);
 
 async function start() {
   try {
