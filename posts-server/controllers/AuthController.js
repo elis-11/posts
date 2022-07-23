@@ -61,13 +61,34 @@ export const login = async (req, res) => {
       { expiresIn: "7d" }
     );
     res.json({
-        token, user, message: "You are logged in!"
-    })
+      token,
+      user,
+      message: "You are logged in!",
+    });
   } catch (error) {}
 };
 
 //me user
 export const getMe = async (req, res) => {
   try {
-  } catch (error) {}
+    const user = await User.findById(req.userId);
+
+    if (!user) {
+      return res.json({ message: "User does not exist!" });
+    }
+
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
+    res.json({
+      user,
+      token,
+    });
+  } catch (error) {
+    res.json({ message: "No access!" });
+  }
 };

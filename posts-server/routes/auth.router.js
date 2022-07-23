@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { register, login, getMe, getAll } from "../controllers/AuthController.js";
+import { checkAuth } from "../utils/checkAuth.js";
 const router = new Router();
 
 // all users
@@ -16,6 +17,6 @@ router.post("/login", login);
 
 // Me
 // http://localhost:5000/auth/me
-router.post("/me", getMe);
+router.post("/me", checkAuth, getMe);
 
 export default router;
