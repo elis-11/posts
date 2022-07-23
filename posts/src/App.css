@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -29,5 +30,4 @@
   to {
     transform: rotate(360deg);
   }
-}
 }
