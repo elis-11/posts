@@ -15,7 +15,7 @@ export const Login = () => {
     if (status) toast(status);
   }, [status]);
 
-  const handleSubmit = () => { 
+  const handleSubmit = () => {
     try {
       dispatch(loginUser({ email, password }));
     } catch (error) {

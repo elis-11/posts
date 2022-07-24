@@ -17,6 +17,6 @@ router.post("/login", login);
 
 // Me
 // http://localhost:5000/api/auth/me
-router.post("/me", checkAuth, getMe);
+router.get("/me", checkAuth, getMe);
 
 export default router;
