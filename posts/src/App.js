@@ -15,13 +15,11 @@ import { useEffect } from "react";
 import { getMe } from "./redux/features/auth/authSlice.js";
 
 function App() {
+  const dispatch = useDispatch();
 
-const dispatch =useDispatch()
-
-    useEffect(() => {
-      dispatch(getMe())
-    }, []);
-
+  useEffect(() => {
+    dispatch(getMe());
+  }, [dispatch]);
 
   return (
     <Layout>

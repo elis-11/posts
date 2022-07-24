@@ -2,11 +2,6 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-//all users
-export const getAll = async (req, res) => {
-  const allUsers = await User.find();
-  res.json(allUsers);
-};
 
 // register user
 export const register = async (req, res) => {
@@ -14,9 +9,7 @@ export const register = async (req, res) => {
     const { name, email, password } = req.body;
     const userExisting = await User.findOne({ email });
     if (userExisting) {
-      return res
-        .status(400)
-        .json({ message: `User with email ${email} already exists` });
+      return res.json({ message: `User with email ${email} already exists` });
     }
 
     const salt = bcrypt.genSaltSync(10);
@@ -50,7 +43,7 @@ export const register = async (req, res) => {
 // login user
 export const login = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
       return res.json({ message: "User not found!" });
@@ -74,16 +67,18 @@ export const login = async (req, res) => {
       user,
       message: "You are logged in!",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.json({ message: "authorization error!"})
+  }
 };
 
-//me user
+// Get me user
 export const getMe = async (req, res) => {
   try {
     const user = await User.findById(req.userId);
 
     if (!user) {
-      return res.json({ message: "User does not exist!" });
+      return res.json({ message: "User does not exist!", });
     }
 
     const token = jwt.sign(
@@ -101,3 +96,10 @@ export const getMe = async (req, res) => {
     res.json({ message: "No access!" });
   }
 };
+
+//all users
+export const getAll = async (req, res) => {
+  const allUsers = await User.find();
+  res.json(allUsers);
+};
+
