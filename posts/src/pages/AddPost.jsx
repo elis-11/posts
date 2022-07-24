@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch} from 'react-redux'
+import { useDispatch } from "react-redux";
 import { createPost } from "../redux/features/post/postSlice";
-
+import { useNavigate } from "react-router-dom";
 
 export const AddPost = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
 
   const submitHandler = () => {
     try {
@@ -16,11 +16,16 @@ export const AddPost = () => {
       data.append("title", title);
       data.append("text", text);
       data.append("image", image);
-      dispatch(createPost(data ))
+      dispatch(createPost(data));
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
   };
+  const clearFormHandler=() => {
+    setTitle('')
+    setText('')
+  }
 
   return (
     <form className="w-1/3 mx-auto py-10" onSubmit={(e) => e.preventDefault()}>
@@ -33,9 +38,7 @@ export const AddPost = () => {
         />
       </label>
       <div className="flex object-cover py-2">
-        {/* {image && (
-            <img src={URL.createObjectURL(image)} alt={image.name} />
-        )} */}
+        {image && <img src={URL.createObjectURL(image)} alt={image.name} />}
       </div>
 
       <label className="text-xs text-white opacity-70">
@@ -68,7 +71,7 @@ export const AddPost = () => {
         </button>
 
         <button
-          // onClick={clearFormHandler}
+          onClick={clearFormHandler}
           className="flex justify-center items-center bg-red-400 text-xs text-white rounded-sm py-2 px-4"
         >
           Cancel
