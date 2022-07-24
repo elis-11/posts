@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRouter from "./routes/auth.router.js";
 import postRouter from "./routes/posts.router.js";
+import fileUpload from "express-fileupload";
 
 const app = express();
 dotenv.config();
@@ -11,7 +12,9 @@ const PORT = process.env.PORT || 5555;
 
 // Middleware
 app.use(cors());
+app.use(fileUpload());
 app.use(express.json());
+app.use(express.static('uploads'));
 
 // app.get("/", (req, res) => {
 //   return res.json({ message: "Hello, world!" });

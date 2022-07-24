@@ -8,6 +8,6 @@ npm i react-
 
 
 Server:
-npm i : 
-jwt
-bcryptjs
+npm i bcryptjs
+npm i jwt
+npm i express-fileupload
