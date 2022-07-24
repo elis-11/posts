@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRouter from "./routes/auth.router.js";
+import postRouter from "./routes/posts.router.js";
 
 const app = express();
 dotenv.config();
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
   
 
 app.use("/api/auth", authRouter);
+app.use("/api/posts", postRouter);
 
 async function start() {
   try {
