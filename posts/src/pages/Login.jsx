@@ -17,7 +17,7 @@ export const Login = () => {
         />
       </label> */}
       <label className="text-xs text-gray-400">
-        E-Mail:
+        E-Mail:  
         <input
           type="text"
           placeholder="E-Mail"

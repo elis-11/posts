@@ -20,15 +20,14 @@ app.get("/", (req, res) => {
     res.send(`
     <h2>Welcome!</h2>
   <div>Routes:</div>
-  <div>Users: <a href="/">/</a></div>
-  <div>Users: <a href="/auth">/users</a></div>
+  <div>Users: <a href="/api/auth">/users</a></div>
   
   `);
 });
 {/* <div> Frontend URL: <a href="${process.env.FRONTEND_ORIGIN}"> ${process.env.FRONTEND_ORIGIN}</a></div> */}
   
 
-app.use("/auth", authRouter);
+app.use("/api/auth", authRouter);
 
 async function start() {
   try {

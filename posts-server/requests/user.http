@@ -5,10 +5,10 @@
 GET {{API_URL}}/
 
 ### all
-GET {{API_URL}}/auth
+GET {{API_URL}}/api/auth
 
 ### create / register
-POST {{API_URL}}/auth/register
+POST {{API_URL}}/api/auth/register
 Content-Type: application/json
 
 {
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### login
-POST {{API_URL}}/auth/login
+POST {{API_URL}}/api/auth/login
 Content-Type: application/json
 
 {
