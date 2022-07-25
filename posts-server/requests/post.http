@@ -1,0 +1,17 @@
+@API_URL = http://localhost:5000
+
+### home
+GET {{API_URL}}/
+
+### all
+GET {{API_URL}}/api/posts
+
+### create / register
+POST {{API_URL}}/api/posts
+Content-Type: application/json
+
+{
+    "name": "iman",
+    "title": "iman",
+    "text": "iman"
+}
