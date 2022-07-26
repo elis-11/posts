@@ -1,6 +1,6 @@
 import React from 'react'
 import { AiFillEye, AiOutlineMessage } from 'react-icons/ai'
-// import Moment from 'react-moment'
+import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 
 export const PostItem = ({ post }) => {
@@ -11,6 +11,7 @@ export const PostItem = ({ post }) => {
             </div>
         )
     }
+    //!3:52
     return (
         <Link to={`/${post._id}`}>
             <div className='flex flex-col basis-1/4 flex-grow'>
@@ -32,7 +33,7 @@ export const PostItem = ({ post }) => {
                         {post.name}
                     </div>
                     <div className='text-xs text-white opacity-50'>
-                        {/* <Moment date={post.createdAt} format='D MMM YYYY' /> */}
+                        <Moment date={post.createdAt} format='HH:mm DD. MM. YYYY' />
                     </div>
                 </div>
                 <div className='text-white text-xl'>{post.title}</div>

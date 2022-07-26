@@ -5,6 +5,7 @@ import { PopularPosts } from '../components/PopularPosts'
 import { PostItem } from '../components/PostItem'
 import { getAllPosts } from '../redux/features/post/postSlice'
 
+
 export const Main = () => {
     const dispatch = useDispatch()
     const { posts, popularPosts } = useSelector((state) => state.post)

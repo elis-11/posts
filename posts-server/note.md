@@ -3,6 +3,8 @@ npm i tailwindcss
 npm i @reduxjs/toolkit
 npm i react-redux axios
 npm i react-toastify       -// errors
+npm i react-icons
+npm i react-moment
 npm i react-
 npm i react-
 
