@@ -1,4 +1,4 @@
-import Post from "../models/Posts.js";
+import Post from "../models/Post.js";
 import User from "../models/User.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
