@@ -98,6 +98,11 @@ export const getMe = async (req, res) => {
   }
 };
 
+// logout
+// export const logout=(req, res) => {
+  
+// }
+
 //all users
 export const getAll = async (req, res) => {
   const allUsers = await User.find();
