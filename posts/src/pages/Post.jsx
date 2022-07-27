@@ -11,6 +11,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "../utils/axios";
 import { removePost } from "../redux/features/post/postSlice";
+import { createComment } from "../redux/features/comment/commentSlice";
 // import {createComment,getPostComments,} from '../redux/features/comment/commentSlice'
 // import { CommentItem } from '../components/CommentItem'
 
@@ -34,15 +35,15 @@ export const Post = () => {
     }
   };
 
-  // const handleSubmit = () => {
-  //   try {
-  //     const postId = params.id;
-  //     dispatch(createComment({ postId, comment }));
-  //     setComment("");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const handleSubmit = () => {
+    try {
+      const postId = params.id;
+      dispatch(createComment({ postId, comment }));
+      setComment("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // const fetchComments = useCallback(async () => {
   //   try {
@@ -132,6 +133,7 @@ export const Post = () => {
             )}
           </div>
         </div>
+        {/* Comments */}
         <div className="w-1/3 p-8 bg-gray-700 flex flex-col gap-2 rounded-sm">
           <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
             <input
@@ -143,7 +145,7 @@ export const Post = () => {
             />
             <button
               type="submit"
-              // onClick={handleSubmit}
+              onClick={handleSubmit}
               className="flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4"
             >
               Send

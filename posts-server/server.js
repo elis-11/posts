@@ -4,10 +4,11 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRouter from "./routes/auth.router.js";
 import postRouter from "./routes/posts.router.js";
+import commentRouter from "./routes/comments.router.js";
 import fileUpload from "express-fileupload";
 
 const app = express();
-dotenv.config();
+dotenv.config();  
 const PORT = process.env.PORT || 5555;
 
 // Middleware
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
   <div>Routes:</div>
   <div>Users: <a href="/api/auth">/users</a></div>
   <div>Posts: <a href="/api/posts">/posts</a></div>
+  <div>Comments: <a href="/api/comments">/comments</a></div>
   `);
 });
 {/* <div> Frontend URL: <a href="${process.env.FRONTEND_ORIGIN}"> ${process.env.FRONTEND_ORIGIN}</a></div> */}
@@ -33,6 +35,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
+app.use("/api/comments", commentRouter);
 
 async function start() {
   try {
