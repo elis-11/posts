@@ -5,8 +5,9 @@ npm i react-redux axios
 npm i react-toastify       -// errors
 npm i react-icons
 npm i react-moment
+npm i -D @tailwindcss/line-clamp    // cut Line in Post-Text
 npm i react-
-npm i react-
+
 
 
 Server:
