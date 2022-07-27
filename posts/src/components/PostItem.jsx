@@ -11,7 +11,6 @@ export const PostItem = ({ post }) => {
             </div>
         )
     }
-    //!3:52
     return (
         <Link to={`/${post._id}`}>
             <div className='flex flex-col basis-1/4 flex-grow'>

@@ -73,7 +73,7 @@ export const getById = async (req, res) => {
   }
 };
 
-// Get My Posts
+// Get All Posts
 export const getMyPosts = async (req, res) => {
   try {
     const user = await User.findById(req.userId);

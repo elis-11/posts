@@ -1,11 +1,5 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import { useCallback } from "react";
-import { 
-  // useDispatch,
-   useSelector
-   } from "react-redux";
+import { useEffect, useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   AiFillEye,
   AiOutlineMessage,
@@ -15,9 +9,8 @@ import {
 import Moment from "react-moment";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-
 import axios from "../utils/axios";
-// import { removePost } from '../redux/features/post/postSlice'
+import { removePost } from "../redux/features/post/postSlice";
 // import {createComment,getPostComments,} from '../redux/features/comment/commentSlice'
 // import { CommentItem } from '../components/CommentItem'
 
@@ -29,37 +22,35 @@ export const Post = () => {
   // const { comments } = useSelector((state) => state.comment);
   const navigate = useNavigate();
   const params = useParams();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const removePostHandler = () => {
     try {
-      // dispatch(removePost(params.id));
-      toast("Пост был удален");
+      dispatch(removePost(params.id));
+      toast("Post deleted successfully!");
       navigate("/posts");
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleSubmit = () => {
-    try {
-      // const postId = params.id;
-      // dispatch(createComment({ postId, comment }));
-      setComment("");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleSubmit = () => {
+  //   try {
+  //     const postId = params.id;
+  //     dispatch(createComment({ postId, comment }));
+  //     setComment("");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const fetchComments = useCallback(async () => {
-    try {
-      // dispatch(getPostComments(params.id));
-    } catch (error) {
-      console.log(error);
-    }
-  }, [
-    // params.id, dispatch
-  ]);
+  // const fetchComments = useCallback(async () => {
+  //   try {
+  //     dispatch(getPostComments(params.id));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, [params.id, dispatch]);
 
   const fetchPost = useCallback(async () => {
     const { data } = await axios.get(`/posts/${params.id}`);
@@ -70,15 +61,15 @@ export const Post = () => {
     fetchPost();
   }, [fetchPost]);
 
-  useEffect(() => {
-    fetchComments(); 
-  }, [fetchComments]);
+  // useEffect(() => {
+  //   fetchComments();
+  // }, [fetchComments]);
 
   if (!post) {
     return (
       <div className="text-xl text-center text-white py-10">Loading...</div>
-      );
-    }
+    );
+  }
   return (
     <div>
       <button className="flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4">
@@ -88,11 +79,11 @@ export const Post = () => {
       </button>
 
       <div className="flex gap-10 py-8">
-        <div className="w-2/4">
-          <div className="flex flex-col basis-1/4 flex-grow">
+        <div className="w-3/6"> 
+          <div className="flex flex-col basis-1/3 flex-grow">
             <div
               className={
-                post?.imgUrl ? "flex rouded-sm h-100" : "flex rounded-sm"
+                post?.imgUrl ? "flex rouded-sm h-80" : "flex rounded-sm"
               }
             >
               {post?.imgUrl && (
@@ -152,7 +143,7 @@ export const Post = () => {
             />
             <button
               type="submit"
-              onClick={handleSubmit}
+              // onClick={handleSubmit}
               className="flex justify-center items-center bg-gray-600 text-xs text-white rounded-sm py-2 px-4"
             >
               Send
