@@ -1,5 +1,6 @@
 import Post from "../models/Post.js";
 import User from "../models/User.js";
+import Comment from "../models/Comment.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -126,9 +127,9 @@ export const updatePost = async (req, res) => {
   } catch (error) {
     res.json({ message: "Something went wrong" });
   }
-};
+}; 
 
-// Get Post Comments
+//  Get Post Comments
 export const getPostComments = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);

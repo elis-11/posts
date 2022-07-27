@@ -11,16 +11,18 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "../utils/axios";
 import { removePost } from "../redux/features/post/postSlice";
-import { createComment } from "../redux/features/comment/commentSlice";
-// import {createComment,getPostComments,} from '../redux/features/comment/commentSlice'
-// import { CommentItem } from '../components/CommentItem'
+import {
+  createComment,
+  getPostComments,
+} from "../redux/features/comment/commentSlice";
+import { CommentItem } from "../components/CommentItem";
 
 export const Post = () => {
   const [post, setPost] = useState(null);
   const [comment, setComment] = useState("");
 
   const { user } = useSelector((state) => state.auth);
-  // const { comments } = useSelector((state) => state.comment);
+  const { comments } = useSelector((state) => state.comment);
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
@@ -45,13 +47,13 @@ export const Post = () => {
     }
   };
 
-  // const fetchComments = useCallback(async () => {
-  //   try {
-  //     dispatch(getPostComments(params.id));
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, [params.id, dispatch]);
+  const fetchComments = useCallback(async () => {
+    try {
+      dispatch(getPostComments(params.id));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [params.id, dispatch]);
 
   const fetchPost = useCallback(async () => {
     const { data } = await axios.get(`/posts/${params.id}`);
@@ -62,9 +64,9 @@ export const Post = () => {
     fetchPost();
   }, [fetchPost]);
 
-  // useEffect(() => {
-  //   fetchComments();
-  // }, [fetchComments]);
+  useEffect(() => {
+    fetchComments();
+  }, [fetchComments]);
 
   if (!post) {
     return (
@@ -80,7 +82,7 @@ export const Post = () => {
       </button>
 
       <div className="flex gap-10 py-8">
-        <div className="w-3/6"> 
+        <div className="w-3/6">
           <div className="flex flex-col basis-1/3 flex-grow">
             <div
               className={
@@ -152,9 +154,9 @@ export const Post = () => {
             </button>
           </form>
 
-          {/* {comments?.map((cmt) => (
+          {comments?.map((cmt) => (
             <CommentItem key={cmt._id} cmt={cmt} />
-          ))} */}
+          ))}
         </div>
       </div>
     </div>
