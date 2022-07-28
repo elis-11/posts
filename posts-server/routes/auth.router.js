@@ -5,6 +5,7 @@ const router = new Router();
 
 // Register
 // http://localhost:5000/api/auth/register
+// (`${API_URL}/api/auth/register`)
 router.post('/register', register)
 
 //Login

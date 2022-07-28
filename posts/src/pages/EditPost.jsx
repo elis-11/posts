@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { updatePost } from "../redux/features/post/postSlice";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
+
 export const EditPost = () => {
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -59,7 +62,7 @@ export const EditPost = () => {
       </label>
       <div className="flex object-cover py-2">
         {oldImage && (
-          <img src={`http://localhost:5000/${oldImage}`} alt={oldImage.name} />
+          <img src={`${API_URL}/${oldImage}`} alt={oldImage.name} />
         )}
         {newImage && (
           <img src={URL.createObjectURL(newImage)} alt={newImage.name} />

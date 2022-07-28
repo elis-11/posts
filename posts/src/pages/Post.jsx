@@ -17,6 +17,8 @@ import {
 } from "../redux/features/comment/commentSlice";
 import { CommentItem } from "../components/CommentItem";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 export const Post = () => {
   const [post, setPost] = useState(null);
   const [comment, setComment] = useState("");
@@ -91,7 +93,7 @@ export const Post = () => {
             >
               {post?.imgUrl && (
                 <img
-                  src={`http://localhost:5000/${post.imgUrl}`}
+                  src={`${API_URL}/${post.imgUrl}`}
                   alt="img"
                   className="object-cover w-full"
                 />

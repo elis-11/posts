@@ -2,6 +2,8 @@ import React from "react";
 import { AiFillEye, AiOutlineMessage } from "react-icons/ai";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
+const API_URL = process.env.REACT_APP_API_URL;
+
 
 export const PostItem = ({ post }) => {
   if (!post) {
@@ -17,7 +19,8 @@ export const PostItem = ({ post }) => {
         >
           {post.imgUrl && (
             <img
-              src={`http://localhost:5000/${post.imgUrl}`}
+              // src={`http://localhost:5000/${post.imgUrl}`}
+              src={`${API_URL}/${post.imgUrl}`}
               alt="img"
               className="object-cover w-full"
             />

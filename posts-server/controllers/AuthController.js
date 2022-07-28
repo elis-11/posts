@@ -2,7 +2,6 @@ import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-
 // register user
 export const register = async (req, res) => {
   try {
@@ -69,7 +68,7 @@ export const login = async (req, res) => {
       message: "You are logged in!",
     });
   } catch (error) {
-    res.json({ message: "authorization error!"})
+    res.json({ message: "authorization error!" });
   }
 };
 
@@ -79,7 +78,7 @@ export const getMe = async (req, res) => {
     const user = await User.findById(req.userId);
 
     if (!user) {
-      return res.json({ message: "User does not exist!", });
+      return res.json({ message: "User does not exist!" });
     }
 
     const token = jwt.sign(
@@ -100,7 +99,7 @@ export const getMe = async (req, res) => {
 
 // logout
 // export const logout=(req, res) => {
-  
+
 // }
 
 //all users
@@ -108,4 +107,3 @@ export const getAll = async (req, res) => {
   const allUsers = await User.find();
   res.json(allUsers);
 };
-
