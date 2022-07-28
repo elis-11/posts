@@ -18,6 +18,6 @@ export const createComment = async (req, res) => {
     }
     res.json(newComment);
   } catch (error) {
-    res.json({ message: "Something went wrong", error: error.message });
+    res.json({ message: "Something went wrong", });
   }
 };
