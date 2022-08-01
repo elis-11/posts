@@ -4,7 +4,6 @@ import Moment from "react-moment";
 import { Link } from "react-router-dom";
 const API_URL = process.env.REACT_APP_API_URL;
 
-
 export const PostItem = ({ post }) => {
   if (!post) {
     return (
@@ -17,6 +16,13 @@ export const PostItem = ({ post }) => {
         <div
           className={post.imgUrl ? "flex rouded-sm h-80" : "flex rounded-sm"}
         >
+          {/* <div className="post-image">
+            <img
+              alt="avatar"
+              src={`https://source.unsplash.com/150x150/?nature,${index}`}
+            />
+          </div> */}
+
           {post.imgUrl && (
             <img
               // src={`http://localhost:5000/${post.imgUrl}`}
