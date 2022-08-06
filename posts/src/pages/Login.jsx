@@ -65,7 +65,7 @@ export const Login = () => {
           onClick={handleSubmit}
           className="flex justify-center items-center text-xs text-white rounded-sm py-2 px-4"
         >
-          Signin
+          Login
         </button>
         <Link
           to="/register"
