@@ -70,4 +70,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-### Link: https://www.youtube.com/watch?v=QxTeE5EMiWI&list=LL&index=121
+### Link: https://www.youtube.com/watch?v=QxTeE5EMiWI&list=LL&index=125
+### 👉  Redux Toolkit 2022: https://youtu.be/_j4k73zoy5Y
+### 👉  Tailwindcss: https://youtu.be/6MTT5i-eVmU
+### 👉  Deploy MERN приложения: https://youtu.be/mmDqANI879Y
+### 👉  NEXT.js:  https://youtu.be/e2XjlsZHXSQ
+### 👉  React Native: https://youtu.be/UnLp3rNrGSw
